@@ -46,7 +46,7 @@ const init = () => {
 window.onload = init;
 
 
-// The same code as above, but using a stateless component.
+// The same code as above, but using a stateless component without hooks.
 // Note how we have to manually rerender the component when our username updates.
 // Also note that the handleNameChange logic is removed from the component, which isn't ideal.
 
@@ -62,10 +62,10 @@ window.onload = init;
     }
 
     const handleNameChange = (e) => {
-    ReactDOM.render(
-        <HelloUser username={e.target.value} />,
-        document.getElementById('app')
-    );
+        ReactDOM.render(
+            <HelloUser username={e.target.value} />,
+            document.getElementById('app')
+        );
     };
 
     const init = () => {

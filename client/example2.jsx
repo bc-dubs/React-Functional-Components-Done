@@ -46,27 +46,31 @@ const init = () => {
 window.onload = init;
 
 
-// The same code as above, but using a stateless component without hooks.
-// Note how we have to manually rerender the component when our username updates.
-// Also note that the handleNameChange logic is removed from the component, which isn't ideal.
+/* The same code as above, but using a stateless component without hooks.
+   Note how we have to manually rerender the component when our username updates.
+   Another issue with doing things this way is that our component is now built to
+   only render to the "app" div. We could potentially pass in the render target element
+   as a prop, but then we end up making our component even more messy. The above
+   solution is far cleaner, and utilizes react to properly update the component when needed.
+*/
 
 /*
     const HelloUser = (props) => {
-        return (
-        <div>
-            <p>Hello {props.username}</p>
-            <label>Change Name: </label>
-            <input type="text" value={props.username} onChange={handleNameChange} />
-        </div>
-        )
-    }
+        const handleNameChange = (e) => {
+            ReactDOM.render(
+                <HelloUser username={e.target.value} />,
+                document.getElementById('app')
+            );
+        };
 
-    const handleNameChange = (e) => {
-        ReactDOM.render(
-            <HelloUser username={e.target.value} />,
-            document.getElementById('app')
+        return (
+            <div>
+                <p>Hello {props.username}</p>
+                <label>Change Name: </label>
+                <input type="text" value={props.username} onChange={handleNameChange} />
+            </div>
         );
-    };
+    }
 
     const init = () => {
         ReactDOM.render( <HelloUser username='Austin' />,

@@ -9,7 +9,8 @@
    your non-render code might live in your component.
 */
 
-const { useState, useEffect } = React;
+const { useState, useEffect } = require('react');
+const ReactDOM = require('react-dom');
 
 const SongContainer = (props) => {
     /* First we setup our songs hook so that our component will update when the

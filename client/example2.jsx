@@ -11,6 +11,9 @@
    within our functional components. This leads to a cleaner syntax than class
    components, while still maintaining the benefits of using state.
 */
+const React = require('react');
+const ReactDOM = require('react-dom');
+
 const HelloUser = (props) => {
     /* Here we are registering a state with the React.useState hook. We give it
        an initial value for a variable (from our props object), and then extract 

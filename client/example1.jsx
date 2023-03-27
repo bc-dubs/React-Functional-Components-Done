@@ -10,6 +10,9 @@
    The job of a functional component is to ultimately return some JSX to be rendered,
    much like the class component's render() function.
 */
+const React = require('react');
+const ReactDOM = require('react-dom');
+
 const HelloWorld = () => {
     return (
         <div>

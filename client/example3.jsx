@@ -9,7 +9,8 @@
    your non-render code might live in your component.
 */
 
-const { useState, useEffect } = require('react');
+const React = require('react');
+const { useState, useEffect } = React; // Pull useState and useEffect out of react.
 const ReactDOM = require('react-dom');
 
 const SongContainer = (props) => {

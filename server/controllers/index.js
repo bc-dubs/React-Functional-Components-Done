@@ -12,8 +12,9 @@ const example3 = (req, res) => {
 
 const getSongs = (req, res) => {
   res.json([
-    { artist: 'c418', title: 'Minecraft' },
-    { artist: 'Chris Tilton', title: 'SimCity, 2019' },
+    { artist: 'Rick Astley', title: 'Never Gonna Give You Up' },
+    { artist: 'Washed Out', title: 'Feel It All Around' },
+    { artist: 'Men I Trust', title: 'Show Me How' },
   ]);
 };
 

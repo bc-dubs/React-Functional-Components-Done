@@ -11,6 +11,8 @@
    within our functional components. This leads to a cleaner syntax than class
    components, while still maintaining the benefits of using state.
 */
+
+// "Now, functional componets can do anything class components can, if you know what to type"
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -21,6 +23,7 @@ const HelloUser = (props) => {
        setUsername, it will update the username variable and also rerender the 
        component as needed.
     */
+    // React is now responsible for handling this variable
     const [username, setUsername] = React.useState(props.username);
 
     /* In our JSX, we use the username variable from the useState hook. Then when
@@ -30,7 +33,7 @@ const HelloUser = (props) => {
     */
     return (
       <div>
-        <p>Hello {username}</p>
+        <p>Hello {username}</p> {/* Rather than 'props.username'*/}
         <label>Change Name: </label>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>

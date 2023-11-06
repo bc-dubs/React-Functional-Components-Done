@@ -36,8 +36,13 @@ module.exports = {
         ],
     },
 
-    // We are using the production build mode as we did last time.
-    mode: 'production',
+    /* We are using the development build mode as we did last time. In package.json,
+       our heroku-postbuild command will run webpack in production mode. This means
+       we don't need to remember to build in production mode ourselves. Heroku will
+       automatically run the heroku-postbuild command right before it removes all
+       dev dependencies and launches our application.
+    */
+    mode: 'development',
 
     /* Output defines the output files. The path shows us what folder to put them in.
        hosted in this case. The filename defines the name of the output file. By

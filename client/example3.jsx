@@ -13,7 +13,7 @@ const React = require('react');
 const { useState, useEffect } = React; // Pull useState and useEffect out of react.
 const ReactDOM = require('react-dom');
 
-const SongContainer = (props) => {
+const SongContainer = (props) => { // Components must start with a capital letter
     /* First we setup our songs hook so that our component will update when the
        array of songs updates. We will base it off the props.songs array.
     */
@@ -34,10 +34,24 @@ const SongContainer = (props) => {
        the component. Because this rerenders the component, if we had not passed an empty
        array as the second parameter our effect would run again causing an infinite loop.
     */
-    useEffect(async () => {
-        const response = await fetch('/getSongs');
-        const songs = await response.json();
-        setSongs(songs);
+   
+    // This still runs, but React gets mad at it
+    // useEffect(async () => {
+    //     const response = await fetch('/getSongs');
+    //     const songs = await response.json();
+    //     setSongs(songs);
+    // }, []);
+
+    // 2nd param is a dependency list. It contains the variables whose change should trigger the effect
+    // By leaving it empty, we ask it to run only the first time the component is rendered
+    // If we hadn't passed in a dependency list at all, it would run every time the component is rendered
+    useEffect(() => {
+        const getSongList = async () => {
+            const response = await fetch('/getSongs');
+            const songs = await response.json();
+            setSongs(songs);
+        }
+        getSongList();
     }, []);
     
     /* Our effect runs in the background, so immediately our component will render with
